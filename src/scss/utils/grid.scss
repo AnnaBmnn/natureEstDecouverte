@@ -1,0 +1,203 @@
+@use "sass:math";
+/*
+ * WRAPPER
+ */
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+  padding: 7px 10px;
+
+  &--full {
+    max-width: none;
+    padding: 0;
+  }
+  @media screen and (max-width: $mobile) {
+    padding: 0 10px ;
+
+  }
+}
+
+/*
+ * ROW
+ */
+.row {
+  margin-left: math.div(-$gutter, 2);
+  margin-right: math.div(-$gutter, 2);
+  @include flex(flex-start, flex-start, "", wrap);
+
+  &--h-center {
+    justify-content: center;
+  }
+  &--h-end {
+    justify-content: flex-end;
+  }
+  &--h-around {
+    justify-content: space-around;
+  }
+  &--h-between {
+    justify-content: space-between;
+  }
+
+  &--v-center {
+    align-items: center;
+  }
+  &--v-end {
+    align-items: flex-end;
+  }
+  &--v-stretch {
+    align-items: stretch;
+  }
+
+  &--center {
+    justify-content: center;
+    align-items: center;
+  }
+
+  &--column {
+    flex-direction: column;
+  }
+
+  &--nowrap {
+    flex-wrap: nowrap;
+  }
+}
+
+/*
+ * COLS
+ */
+@for $i from 1 through  $num_col {
+  .col-#{$i} {
+    padding-left: math.div($gutter, 2);
+    padding-right: math.div($gutter, 2);
+    @include col("width", $i,  $num_col);
+
+    .ie & {
+      @include colIE("width", $i,  $num_col);
+    }
+  }
+
+  .offset-#{$i} {
+    @include col("margin-left", $i,  $num_col);
+
+    .ie & {
+      @include colIE("margin-left", $i,  $num_col);
+    }
+  }
+}
+
+// RESPONSIVE
+@media screen and (max-width: $desktop) {
+  @for $i from 1 through  $num_col {
+    .col-desktop-#{$i} {
+      @include col("width", $i,  $num_col);
+
+      .ie & {
+        @include colIE("width", $i,  $num_col);
+      }
+    }
+
+    .offset-desktop-#{$i} {
+      @include col("margin-left", $i,  $num_col);
+
+      .ie & {
+        @include colIE("margin-left", $i,  $num_col);
+      }
+    }
+  }
+
+  .offset-desktop-0 {
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: $tablet-h) {
+  @for $i from 1 through  $num_col {
+    .col-tabletH-#{$i} {
+      @include col("width", $i,  $num_col);
+
+      .ie & {
+        @include colIE("width", $i,  $num_col);
+      }
+    }
+
+    .offset-tabletH-#{$i} {
+      @include col("margin-left", $i,  $num_col);
+
+      .ie & {
+        @include colIE("margin-left", $i,  $num_col);
+      }
+    }
+  }
+
+  .offset-tabletH-0 {
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: $tablet) {
+  @for $i from 1 through  $num_col {
+    .col-tablet-#{$i} {
+      @include col("width", $i,  $num_col);
+
+      .ie & {
+        @include colIE("width", $i,  $num_col);
+      }
+    }
+
+    .offset-tablet-#{$i} {
+      @include col("margin-left", $i,  $num_col);
+
+      .ie & {
+        @include colIE("margin-left", $i,  $num_col);
+      }
+    }
+  }
+
+  .offset-tablet-0 {
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: $tablet-w) {
+  @for $i from 1 through  $num_col {
+    .col-tabletW-#{$i} {
+      @include col("width", $i,  $num_col);
+
+      .ie & {
+        @include colIE("width", $i,  $num_col);
+      }
+    }
+
+    .offset-tabletW-#{$i} {
+      @include col("margin-left", $i,  $num_col);
+
+      .ie & {
+        @include colIE("margin-left", $i,  $num_col);
+      }
+    }
+  }
+
+  .offset-tabletW-0 {
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: $mobile) {
+  @for $i from 1 through  $num_col {
+    .col-mobile-#{$i} {
+      @include col("width", $i,  $num_col);
+
+      .ie & {
+        @include colIE("width", $i,  $num_col);
+      }
+    }
+
+    .offset-mobile-#{$i} {
+      @include col("margin-left", $i,  $num_col);
+
+      .ie & {
+        @include colIE("margin-left", $i,  $num_col);
+      }
+    }
+  }
+
+  .offset-mobile-0 {
+    margin-left: 0;
+  }
+}

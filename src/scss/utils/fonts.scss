@@ -1,0 +1,37 @@
+// /*
+// * Grafier
+// */
+@font-face {
+	font-family: 'Grafier';
+	src: local('Grafier'), local('Grafier'),
+		url('./assets/fonts/Grafier-Regular.woff2') format('woff2'),
+		url('./assets/fonts/Grafier-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+// /*
+// * Post Grotesk
+// */
+// @font-face {
+// 	font-family: 'Post Grotesk Light';
+// 	src: local('Post Grotesk Light'), local('PostGrotesk-Light'),
+// 		url('~assets/fonts/PostGrotesk/PostGrotesk-Light.woff2') format('woff2'),
+// 		url('~assets/fonts/PostGrotesk/PostGrotesk-Light.woff') format('woff'),
+// 		url('~assets/fonts/PostGrotesk/PostGrotesk-Light.ttf') format('truetype');
+// 	font-weight: 300;
+// 	font-style: normal;
+// 	font-display: swap;
+// }
+
+// @font-face {
+// 	font-family: 'Post Grotesk Book';
+// 	src: local('Post Grotesk Book'), local('PostGrotesk-Book'),
+// 		url('~assets/fonts/PostGrotesk/PostGrotesk-Book.woff2') format('woff2'),
+// 		url('~assets/fonts/PostGrotesk/PostGrotesk-Book.woff') format('woff'),
+// 		url('~assets/fonts/PostGrotesk/PostGrotesk-Book.ttf') format('truetype');
+// 	font-weight: 400;
+// 	font-style: normal;
+// 	font-display: swap;
+// }

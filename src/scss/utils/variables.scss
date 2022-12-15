@@ -1,0 +1,47 @@
+/*
+ * Responsive
+ */
+$large: 1440px;
+$desktop: 1280px;
+$tablet-h: 1024px;
+
+$tablet: 979px;
+
+$tablet-w: 820px;
+$mobile: 480px;
+
+
+/*
+ * VARS
+ */
+
+ $num_col: 12;
+ $gutter: 10px;
+
+:root {
+    --var-gutter: 10px;
+    --var-container: 1920px;
+    --var-num-col: 12;
+    --font-grafier: 'Grafier', 'Times New Roman', Times, serif;
+}
+
+/**
+ * Colors
+ */
+:root {
+    --color-cerulean: #074E67;
+    --color-oxblood: #4A0000;
+    --color-soft-camel: #DDBF9A;
+    --color-aqua: #9AE0DE;
+    --color-carmine: #F33537;
+    --color-cool-grey: #767A7D;
+    --color-black: #262626;
+    --color-white: #F8F8F8;
+}
+
+/**
+ * Fonts
+ */
+ $postGroteskLight: 'Post Grotesk Light', sans-serif;
+ $postGroteskBook: 'Post Grotesk Book', sans-serif;
+ $gallient: 'Gallient', serif;

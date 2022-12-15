@@ -1,0 +1,28 @@
+.button {
+    text-transform: uppercase;
+    box-shadow: none;
+    border-radius: 3px;
+    background-color: #ffffff12;
+    backdrop-filter: blur(50px);
+    font-size: 30px;
+    line-height: 30px;
+    letter-spacing: 0em;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid black;
+    mix-blend-mode: initial;
+
+    &--active {
+        color: white;
+        background-color: #0000008a;
+    }
+
+    &__container {
+        position: fixed;
+        z-index: 10;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

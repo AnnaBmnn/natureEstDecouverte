@@ -1,0 +1,34 @@
+.titles {
+    max-width: 100%;
+    padding-right: var(--var-gutter);
+    position: absolute;
+    bottom: 0;
+    // color: white;
+    // mix-blend-mode: difference;
+    &__container {
+        position: relative;
+    }
+    &__row {
+        margin-bottom: 0.2vw;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__link {
+        text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.0);
+
+        transition: all 0.1s linear;
+
+        &:hover {
+            // color: rgb(200, 255, 0);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+        }
+    }
+}
+
+.scroll {
+    position: fixed;
+    height: 20vh;
+    top: calc(100vh - 20vh);
+    width: unset;
+    left: 50vw;
+}

@@ -1,0 +1,39 @@
+@import "./scss/utils/reset";
+@import "./scss/utils/tools";
+@import "./scss/utils/variables";
+@import "./scss/utils/grid";
+@import "./scss/utils/fonts";
+@import "./scss/utils/typography";
+@import "./scss/components/section";
+@import "./scss/components/button";
+@import "./scss/components/header";
+@import "./scss/components/logo";
+@import "./scss/components/titles";
+
+
+
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body
+{
+    font-family: 'Grafier', 'Times New Roman', Times, serif;
+    // overflow: hidden;
+    @include smooth;
+}
+
+.webgl
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+}
+
+iframe {
+    max-width: 100%;
+}

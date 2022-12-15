@@ -1,0 +1,35 @@
+.t-body {
+	font-family: var(--font-grafier);
+	font-style: normal;
+	font-weight: 400;
+	font-size: rem(20px);
+	font-size: clamp( 12px ,1.31vw, 60px);
+	line-height: rem(22px);
+	letter-spacing: 0.24em;
+}
+
+.t-body--spaced {
+	font-family: var(--font-grafier);
+	font-style: normal;
+	font-weight: 400;
+	font-size: rem(20px);
+	font-size: clamp( 12px ,1.38vw, 60px);
+	line-height: rem(22px);
+	text-transform: uppercase;
+	// letter-spacing: 0.1em;
+	letter-spacing: 1.1em;
+	// letter-spacing: 1.52em;
+    white-space: nowrap;
+}
+
+.t-small-body {
+	font-family: var(--font-grafier);
+	font-style: normal;
+	font-weight: 400;
+	font-size: rem(12px);
+	font-size: clamp( 8px ,0.83vw, 24px);
+	line-height: rem(16px);
+	// letter-spacing: 0.1em;
+	letter-spacing: 0.075em;
+	text-align: justify;
+}
