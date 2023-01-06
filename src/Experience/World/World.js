@@ -32,7 +32,7 @@ export default class World
             this.terrain = new Terrain()
             this.texte = new Texte()
             this.player = new Player()
-            // this.butterfly = new Butterfly()
+            this.butterfly = new Butterfly()
         })
 
     }
