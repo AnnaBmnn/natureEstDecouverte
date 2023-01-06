@@ -24,14 +24,8 @@ export default class World
             // Set up
             this.water = new WaterClass()
 
-            for(let i = 0; i < this.screenNumber; i ++){
-                this.screens.push(new Screen())
-            }
-
             this.environment = new Environment()
-            this.terrain = new Terrain()
             this.texte = new Texte()
-            this.player = new Player()
             // this.butterfly = new Butterfly()
         })
 

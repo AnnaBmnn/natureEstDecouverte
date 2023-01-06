@@ -15,7 +15,7 @@ export default class Renderer
         this.camera = this.experience.camera
         this.debug = this.experience.debug
         this.debugParams = {
-            color: '#152e42'
+            color: '#ffffff'
         }
 
         // Debug

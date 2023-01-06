@@ -12,9 +12,9 @@ export default class WaterClass
         this.camera = this.experience.camera
         this.time = this.experience.time
         this.debug = this.experience.debug
-        this.meshFollowCamera = false
+        this.meshFollowCamera = true
         this.scale = 1.5
-        this.color = '#215c63'
+        this.color = '#ffffff'
 
         this.setGeometry()
         this.setMesh()
