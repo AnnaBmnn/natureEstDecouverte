@@ -12,8 +12,8 @@ export default class WaterClass
         this.camera = this.experience.camera
         this.time = this.experience.time
         this.debug = this.experience.debug
-        this.meshFollowCamera = true
-        this.scale = 1.5
+        this.meshFollowCamera = false
+        this.scale = 12
         this.color = '#ffffff'
 
         this.setGeometry()
@@ -46,8 +46,8 @@ export default class WaterClass
 
 
         // this.mesh.material.side = THREE.DoubleSide
-        this.mesh.position.set(0, -10.2, -40)
-        this.mesh.rotation.set(- Math.PI * 0.5, 0, - 2.419)
+        this.mesh.position.set(-2, 0, -0)
+        this.mesh.rotation.set(0, Math.PI * 0.5, 0)
 
         this.scene.add(this.mesh)
     }
@@ -80,6 +80,5 @@ export default class WaterClass
         if(this.meshFollowCamera){
             this.mesh.lookAt(this.camera.controls.object.position)
         }
-        this.mesh.position.y = Math.sin(this.time.elapsed * 0.0001) * 6 - 4.2
     }
 }

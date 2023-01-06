@@ -13,7 +13,7 @@ export default class Texte
         this.resources = this.experience.resources
         this.time = this.experience.time
         this.debug = this.experience.debug
-        this.meshFollowCamera = true
+        this.meshFollowCamera = false
 
         this.resource = this.resources.items.Texte
 
@@ -30,8 +30,8 @@ export default class Texte
         this.model = this.resource.scene
 
         // Position mesh
-        this.model.position.set(-9.4, -5.9, -32.362)
-        this.model.rotation.set(2.625, -4.5, 3.03)
+        // this.model.position.set(-9.4, -5.9, -32.362)
+        this.model.rotation.set(0,  Math.PI *  0.5, 0)
         this.model.scale.set(3, 3)
 
 
@@ -42,7 +42,7 @@ export default class Texte
             {
                 child.castShadow = true
                 child.material.transparent = true
-                child.material.opacity = 1.0
+                child.material.opacity = 0.5
             }
         })
 
