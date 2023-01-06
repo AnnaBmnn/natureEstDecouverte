@@ -13,7 +13,7 @@ export default class WaterClass
         this.time = this.experience.time
         this.debug = this.experience.debug
         this.meshFollowCamera = false
-        this.scale = 12
+        this.scale = 23
         this.color = '#ffffff'
 
         this.setGeometry()
@@ -40,7 +40,7 @@ export default class WaterClass
             flowDirection: new THREE.Vector2( 0, 1 ),
             textureWidth: 1024,
             textureHeight: 1024,
-            opacity: 0.,
+            opacity: 0.1,
             transparent: true,
         } );
 

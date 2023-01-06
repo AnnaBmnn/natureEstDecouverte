@@ -16,18 +16,18 @@ export default class Camera
         this.activeIndex = null
 
         this.cameraScreenPosition = [
-            // {
-            //     position: new THREE.Vector3(
-            //         - 53,
-            //         - 39,
-            //         28
-            //     ),
-            //     rotation: {
-            //         x: 0.95,
-            //         y: -0.82,
-            //         z: 0.81
-            //     }
-            // },
+            {
+                position: new THREE.Vector3(
+                    30,
+                    3,
+                    -7
+                ),
+                rotation: {
+                    x: -2.7,
+                    y: 1.29,
+                    z: 2.75
+                }
+            },
             {
                 position: new THREE.Vector3(
                     0,
@@ -119,7 +119,7 @@ export default class Camera
             1,
             1000
         )
-        this.instance.position.set(89, 10, -23)
+        this.instance.position.set(30, 3, -7)
         this.scene.add(this.instance)
     }
 

@@ -52,12 +52,12 @@ export default class Environment
     }
     setLight(name)
     {
-        const light = new THREE.DirectionalLight('#ffffff', 10)
+        const light = new THREE.DirectionalLight('#ffffff', 2.5)
         light.castShadow = true
         light.shadow.camera.far = 15
         light.shadow.mapSize.set(1024, 1024)
         light.shadow.normalBias = 0.05
-        light.position.set(9.86, 0, 2)
+        light.position.set(4, 0.8, -2)
         this.scene.add(light)
 
         // const helper = new THREE.DirectionalLightHelper( light, 5 );

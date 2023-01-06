@@ -31,8 +31,9 @@ export default class Texte
 
         // Position mesh
         // this.model.position.set(-9.4, -5.9, -32.362)
-        this.model.rotation.set(0,  Math.PI *  0.5, 0)
-        this.model.scale.set(3, 3)
+        this.model.rotation.set(0,  Math.PI *  0.5 + 0.4, 0)
+        this.model.scale.set(3, 3, 1)
+        // this.model.scale.set(3, 3, 8)
 
 
         // Set Material to all child of a mesh
@@ -43,6 +44,7 @@ export default class Texte
                 child.castShadow = true
                 child.material.transparent = true
                 child.material.opacity = 0.5
+                // child.material.opacity = 1
             }
         })
 
@@ -59,6 +61,7 @@ export default class Texte
             this.debugFolder.add(this.model.rotation, 'z').min(-100).max(100).step(0.001).name('rotation Z')
             this.debugFolder.add(this.model.scale, 'x').min(0).max(10).step(0.001).name('Scale')
             this.debugFolder.add(this.model.scale, 'y').min(0).max(10).step(0.001).name('Scale')
+            this.debugFolder.add(this.model.scale, 'z').min(0).max(10).step(0.001).name('Scale')
             this.debugFolder.add(this, 'meshFollowCamera').name('texte follow camera')
         }
     }
