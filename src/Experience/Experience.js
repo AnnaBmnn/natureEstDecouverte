@@ -42,7 +42,7 @@ export default class Experience
         this.world = new World()
 
         // Dom
-        // this.header = new Header()
+        this.header = new Header()
 
         // Sizes resize event
         this.sizes.on('resize', () => 

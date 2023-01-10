@@ -45,7 +45,7 @@ export default class WaterClass
         } );
 
 
-        // this.mesh.material.side = THREE.DoubleSide
+        this.mesh.material.side = THREE.DoubleSide
         this.mesh.position.set(0, -10.2, -40)
         this.mesh.rotation.set(- Math.PI * 0.5, 0, - 2.419)
 
