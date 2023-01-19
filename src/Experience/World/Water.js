@@ -27,8 +27,8 @@ export default class WaterClass
 
     setGeometry()
     {
-        this.waterGeometry = new THREE.PlaneGeometry( 300, 300 );
-        // this.waterGeometry = new THREE.SphereGeometry( 15, 32, 16 );
+        // this.waterGeometry = new THREE.PlaneGeometry( 300, 300 );
+        this.waterGeometry = new THREE.SphereGeometry( 10, 32, 16 );
     }
 
     setMesh()

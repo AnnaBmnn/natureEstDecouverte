@@ -17,7 +17,7 @@ export default class Environment
         }
 
         this.setLight('first light')
-        this.setFog()
+        // this.setFog()
         this.setEnvironmentMap()
     }
 
