@@ -16,7 +16,8 @@ export default class Environment
             this.debugFolder = this.debug.ui.addFolder('environment')
         }
 
-        this.setLight('first light')
+        // this.setLight('first light', 9.86, 0, 2)
+        // this.setLight('second light', 9.86, 0, -2)
         this.setFog()
         this.setEnvironmentMap()
     }
@@ -51,18 +52,19 @@ export default class Environment
         }
 
     }
-    setLight(name)
+    setLight(name, x, y, z)
     {
-        const light = new THREE.DirectionalLight('#ffffff', 10)
+        const light = new THREE.DirectionalLight('#ffffff', 0)
         light.castShadow = true
         light.shadow.camera.far = 15
         light.shadow.mapSize.set(1024, 1024)
         light.shadow.normalBias = 0.05
-        light.position.set(9.86, 0, 2)
+        light.position.set(x, y, z)
+        light.rotation.set(x, y, z)
         this.scene.add(light)
 
-        // const helper = new THREE.DirectionalLightHelper( light, 5 );
-        // this.scene.add( helper );
+        const helper = new THREE.DirectionalLightHelper( light, 5 );
+        this.scene.add( helper );
 
         // Debug
         if(this.debug.active)
@@ -91,6 +93,27 @@ export default class Environment
             this.debugFolder
                 .add(light.position, 'z')
                 .name(`${name}Z`)
+                .min(-10)
+                .max(10)
+                .step(0.001)
+
+            this.debugFolder
+                .add(light.rotation, 'x')
+                .name(`${name}rotationX`)
+                .min(-1)
+                .max(10)
+                .step(0.001)
+                
+            this.debugFolder
+                .add(light.rotation, 'y')
+                .name(`${name}rotationY`)
+                .min(0)
+                .max(10)
+                .step(0.001)
+
+            this.debugFolder
+                .add(light.rotation, 'z')
+                .name(`${name}rotationZ`)
                 .min(-10)
                 .max(10)
                 .step(0.001)

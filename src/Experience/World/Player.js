@@ -32,7 +32,7 @@ export default class Player
 
     setGeometry()
     {
-        this.screenGeometry = new THREE.PlaneGeometry(10, 10, 1, 1)
+        this.screenGeometry = new THREE.SphereGeometry(5, 32, 16 )
     }
     
     setTextures()
@@ -52,9 +52,9 @@ export default class Player
     {
         this.material = new THREE.MeshBasicMaterial({
             map: this.textures.color,
-            side: THREE.DoubleSide
+            side: THREE.DoubleSide,
             // normalMap: this.textures.color,
-            // blending: THREE.AdditiveBlending,
+            blending: THREE.AdditiveBlending,
         })
     }
 

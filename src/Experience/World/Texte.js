@@ -30,9 +30,9 @@ export default class Texte
         this.model = this.resource.scene
 
         // Position mesh
-        this.model.position.set(-9.4, -5.9, -32.362)
+        this.model.position.set(-6.868, 5.854, 5.854)
         this.model.rotation.set(2.625, -4.5, 3.03)
-        this.model.scale.set(3, 3)
+        this.model.scale.set(6.819, 6.565)
 
 
         // Set Material to all child of a mesh
