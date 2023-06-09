@@ -6,6 +6,7 @@ import Time from "./Utils/Time.js"
 import Camera from "./Camera.js"
 import Renderer from "./Renderer.js"
 import Header from "./DOM/Header.js"
+import Info from "./DOM/Info.js"
 import World from "./World/World.js"
 import Resources from './Utils/Resources.js'
 import Raycaster from './Utils/Raycaster.js'
@@ -45,6 +46,7 @@ export default class Experience
         
         // Dom
         // this.header = new Header()
+        this.info = new Info()
 
         // Sizes resize event
         this.sizes.on('resize', () => 

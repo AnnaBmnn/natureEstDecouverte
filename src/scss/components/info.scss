@@ -1,5 +1,47 @@
 .info {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 8px 12px;
+    border-radius: 3px;
+    background-color: #ffffff12;
+    backdrop-filter: blur(20px);
+    width: 35vw;
+    // min-width: 300px;
+    text-align: justify;
+    border: 1px solid black;
+    color: black;
+    font-size: 12px;
+
+    &.hidden {
+        display: none;
+    }
+
+    .small {
+        text-align-last: right;
+    }
+
+    &__content {
+        display: inline-block;
+        z-index: 20;
+        margin-left: 6px;
+        transform: translateY(2px);
+        // position: fixed;
+        // right: 10px;
+        // bottom: 10px;
+        @media screen and (max-width: 710px) {
+            // display: none;
+        }
+    }
+
+    a {
+        // font-style: italic;
+        text-decoration: underline;
+    }
+
+    &__button {
+        // position: absolute;
+        // bottom: 0;
+        // right: 0;
+    }
 }
