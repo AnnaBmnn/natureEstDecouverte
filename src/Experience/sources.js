@@ -17,6 +17,16 @@ export default [
         path: 'textures/video/color.png'
     },
     {
+        name: 'VideoMoonColorTexture',
+        type: 'texture',
+        path: 'textures/video/moon.png'
+    },
+    {
+        name: 'VideoVegetalColorTexture',
+        type: 'texture',
+        path: 'textures/video/vegetal.png'
+    },
+    {
         name: 'GrassColorTexture',
         type: 'texture',
         path: 'textures/grass/grass.png'

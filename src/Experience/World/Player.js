@@ -5,9 +5,10 @@ import screenFragmentShader from '../../shaders/fragment.glsl'
 
 export default class Player
 {
-    constructor()
+    constructor(textureName, url, position)
     {
         this.experience = new Experience()
+        this.raycaster = this.experience.raycaster
         this.debug = this.experience.debug
         this.calculs = this.experience.calculs
         this.scene = this.experience.scene
@@ -15,12 +16,15 @@ export default class Player
         this.time = this.experience.time
         this.camera = this.experience.camera
         this.resources = this.experience.resources
-
+        this.linkSrc = url
+        this.position = position
+        this.textureName = textureName
 
         this.setGeometry()
         this.setTextures()
         this.setMaterial()
         this.setMesh()
+
 
         // Debug
         if(this.debug.active)
@@ -32,14 +36,16 @@ export default class Player
 
     setGeometry()
     {
-        this.screenGeometry = new THREE.SphereGeometry(5, 32, 16 )
+        this.glowGeometry = new THREE.SphereGeometry(2, 512, 512 )
+        this.screenGeometry = new THREE.SphereGeometry(1, 512, 512 )
+
     }
     
     setTextures()
     {
         this.textures = {}
 
-        this.textures.color = this.resources.items['VideoColorTexture']
+        this.textures.color = this.resources.items[this.textureName]
 
         this.textures.color.encoding = THREE.sRGBEncoding
         this.textures.color.repeat.set(1.5, 1.5)
@@ -50,24 +56,92 @@ export default class Player
 
     setMaterial()
     {
-        this.material = new THREE.MeshBasicMaterial({
-            map: this.textures.color,
-            side: THREE.DoubleSide,
-            // normalMap: this.textures.color,
-            blending: THREE.AdditiveBlending,
+        this.material = new THREE.MeshPhysicalMaterial({
+            color: 0xffffff,
+            transmission: 1,
+            opacity: 0.5,
+            transparent: true,
+            metalness: 0,
+            roughness: 0,
+            ior: 1.5,
+            thickness: 0.1,
+            specularIntensity: 1,
+            specularColor: 0xffffff,
+            envMap: this.textures.color,
+            envMapIntensity: 0,
+            lightIntensity: 1,
+            exposure: 1
         })
+        this.normalMaterial = new THREE.MeshBasicMaterial({
+            map: this.textures.color,
+            color: new THREE.Color(),
+        })
+        this.customUniforms = {
+            uTime: { value: 0 }
+        }
+        
+        this.material.onBeforeCompile = (shader) =>
+        {
+            shader.uniforms.uTime = this.customUniforms.uTime
+        
+            shader.vertexShader = shader.vertexShader.replace(
+                '#include <begin_vertex>',
+                `
+                    #include <begin_vertex>
+        
+                    float x = cos(transformed.x * 1.0 + uTime * 5.0) * sin(transformed.x * 02.0 + uTime * 1.0)   * 0.5;
+                    float y = sin(transformed.y * 0.3 * transformed.x + uTime * 1.0) * cos(transformed.x + uTime)  * 0.2;
+                    float z = sin(transformed.z * 1.0 + uTime * 1.0 ) * cos(transformed.y * 1.0 + uTime * 5.0 ) * 0.1;
+
+                    transformed.x = x + transformed.x;
+                    transformed.y = y + transformed.y;
+                    transformed.z = z + transformed.z;
+
+                `
+            )
+            shader.vertexShader = shader.vertexShader.replace(
+                '#include <common>',
+                `
+                    #include <common>
+        
+                    uniform float uTime;
+                    uniform mat2 rotateMatrix;
+        
+                    mat2 get2dRotateMatrix(float _angle)
+                    {
+                        return mat2(cos(_angle), - sin(_angle), sin(_angle), cos(_angle));
+                    }
+                `
+            )
+            shader.fragmentShader = shader.fragmentShader.replace(
+                '#include <map_fragment>',
+                `
+                    #include <map_fragment>
+                    gl_FragColor.a = 1.0 - (gl_FragColor.r + gl_FragColor.g + gl_FragColor.b) / 3.0;
+                `
+            )
+        }
     }
 
     setMesh()
     {
-        this.mesh = new THREE.Mesh(this.screenGeometry, this.material)
+        this.mesh = new THREE.Mesh(this.glowGeometry, this.material)
+        this.normalMesh = new THREE.Mesh(this.screenGeometry, this.normalMaterial)
+
         this.mesh.receiveShadow = true
         this.mesh.position.set(
-            -40,
-            -14,
-            -34
+            this.position.x,
+            this.position.y,
+            this.position.z,
         )
+        this.normalMesh.position.set(
+            this.position.x,
+            this.position.y,
+            this.position.z,
+        )
+        this.mesh.linkSrc = this.linkSrc
         this.scene.add(this.mesh)
+        this.scene.add(this.normalMesh)
     }
 
     setDebug()
@@ -80,8 +154,12 @@ export default class Player
 
     update()
     {
-        this.mesh.lookAt(this.camera.controls.object.position)
 
+        // Update material
+        this.customUniforms.uTime.value += 0.01
+        //this.mesh.lookAt(this.camera.controls.object.position)
+        this.mesh.rotation.y += 0.01
+        this.normalMesh.rotation.y += 0.01
     }
 
 }

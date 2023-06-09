@@ -5,7 +5,7 @@ import screenFragmentShader from '../../shaders/fragment.glsl'
 
 export default class Screen
 {
-    constructor()
+    constructor(objectToIntersect)
     {
         this.experience = new Experience()
         this.calculs = this.experience.calculs
