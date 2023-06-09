@@ -54,12 +54,14 @@ export default class Raycaster
             this.intersects = this.raycaster.intersectObjects( this.objectToIntersect );
 
             if(this.intersects.length > 0){
+                document.querySelector('body').classList.add('pointer')
                 for ( let i = 0; i < this.intersects.length; i ++ ) {
                     this.intersects[ i ].object.material.opacity = 0.5;
                     this.intersects[ i ].object.material.map = this.intersects[ i ].object.material.envMap;
                     this.intersects[ i ].object.material.needsUpdate = true;
                 }
             } else {
+                document.querySelector('body').classList.remove('pointer')
                 for ( let i = 0; i < this.objectToIntersect.length; i ++ ) {
                     this.objectToIntersect[ i ].material.opacity = 0.2;
                     this.objectToIntersect[ i ].material.map = null
