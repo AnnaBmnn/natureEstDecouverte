@@ -113,13 +113,7 @@ export default class Player
                     }
                 `
             )
-            shader.fragmentShader = shader.fragmentShader.replace(
-                '#include <map_fragment>',
-                `
-                    #include <map_fragment>
-                    gl_FragColor.a = 1.0 - (gl_FragColor.r + gl_FragColor.g + gl_FragColor.b) / 3.0;
-                `
-            )
+
         }
     }
 
