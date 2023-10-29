@@ -14,7 +14,6 @@ export default class Raycaster
         this.pointer = new THREE.Vector2()
         this.resources = this.experience.resources
         this.intersects = null
-
         this.onPointerMove = this.onPointerMove.bind(this)
         this.update = this.update.bind(this)
         this.onClick = this.onClick.bind(this)
@@ -22,11 +21,9 @@ export default class Raycaster
 
         this.resources.on('ready', () => 
         {
-            this.audio = this.experience.audio
             this.camera = this.experience.camera.instance
             this.objectToIntersect = this.experience.world.objectToIntersect
             this.isReady = true
-
 
             window.addEventListener( 'mousemove', this.onPointerMove );
             //window.addEventListener( 'click', this.onClick );
@@ -50,8 +47,9 @@ export default class Raycaster
         if(this.intersects && this.intersects.length > 0) {
 
             if(this.intersects[0].object.linkSrc){
-
-                this.resources.items['AudioBubbleClick'].play()
+                if(this.experience.audios.isAudioActive){
+                    this.resources.items['AudioBubbleClick'].play()
+                }
                 window.open(this.intersects[0].object.linkSrc, '_blank').focus();
             }
         }
@@ -69,7 +67,9 @@ export default class Raycaster
                 document.querySelector('body').classList.add('pointer')
                 if(!this.isMouseIn){
                     this.isMouseIn = true
-                    this.resources.items['AudioBubbleHover'].play()
+                    if(this.experience.audios.isAudioActive){
+                        this.resources.items['AudioBubbleHover'].play()
+                    }
                     for ( let i = 0; i < this.intersects.length; i ++ ) {
                         this.intersects[ i ].object.material.opacity = 0.9;
                         this.intersects[ i ].object.material.map = this.intersects[ i ].object.material.envMap;

@@ -1,0 +1,28 @@
+.audios {
+    cursor: pointer;
+    &__icon {
+        font-size: 30px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        z-index: 10;
+    }
+    .full {
+        opacity: 0;
+    }
+    &:hover {
+        .full {
+            opacity: 1;
+        }
+    }
+    &.active {
+        .full {
+            opacity: 1;
+        }
+        &:hover {
+            .full {
+                opacity: 0;
+            }
+        }
+    }
+}
