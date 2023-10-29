@@ -5,22 +5,187 @@
     right: 0;
     bottom: 0;
     z-index: 900;
-    background: rgba(21, 46, 66, 1);
-    backdrop-filter: blur(80px);
-    pointer-events: none;
-    transition: all 1.4s linear;
-    &.hidden {
-        background: rgba(21, 46, 66, 0);
-        backdrop-filter: blur(0px);
+    // background-color: rgba(21, 46, 66, 1);
+
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    // pointer-events: none;
+    transition: all 0.8s ease-out;
+    &__bg {
+        pointer-events: none;
+        position: absolute;
+        background-color: rgba(21, 46, 66, 1);
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0; 
+        transition: all 0.3s linear;
+        opacity: 1;
+        z-index: 1;
     }
-    &__to-show {
-        visibility: hidden;
-        &.show {
-            visibility: visible;
+
+ 
+    &.hidden {
+        // background-color: rgba(21, 46, 66, 0);
+        // -webkit-backdrop-filter: blur(0px);
+        .loader__bg {
+            opacity: 0;
+        }
+        .loader__icon {
+            opacity: 0;
+            display: none;
+        }
+    }
+    &.not-here {
+        pointer-events: none;
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+        > * {
+            opacity: 0!important;
+            animation-play-state: paused;
         }
     }
 
+    // &.none {display: none;}
+    &__image {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        width: 30vw;
+        height: 18vw;
+        border-radius: 3px;
+        overflow: hidden;
+        border: 1px solid black;
+        z-index: 2;
+        filter: grayscale(100%);
+
+        @media screen and (max-width: 600px) {
+            width: 75vw;
+            height: 50vw;
+            left: unset;
+            right: 10px;
+        }
+        &--1 {
+            z-index: 2;
+            animation: 3s ease-in 0s infinite normal both running opacityAnim ;
+        }
+        &--2 {
+            z-index: 2;
+            animation: 3s ease-in 1s infinite normal both running opacityAnim ;
+        }
+        &--3 {
+            animation: 3s ease-in 2s infinite normal both running opacityAnim ;
+        }
+    }
+    &__icon {
+        position: absolute;
+        bottom: 5px;
+        right: 40px;
+        transform: translate(0%, 0%);
+        font-size: 26px;
+        z-index: 2;
+        @media screen and (max-width: 600px) {
+            font-size: 20px;
+            right: 30px;
+        }
+        &.white {
+            color: white;
+            opacity: 0;
+        }
+
+        &--1 {
+            transform: translate(-30px, 0%);
+            @media screen and (max-width: 600px) {
+                transform: translate(-20px, 0%);
+            }
+            &.white {
+                animation: 3s ease-in 0s infinite normal both running opacityAnim ;
+
+            }
+        }
+        &--2 {
+            &.white {
+                animation: 3s ease-in 1s infinite normal both running opacityAnim ;
+            }
+        }
+        &--3 {
+            transform: translate(30px, 0%);
+            @media screen and (max-width: 600px) {
+                transform: translate(20px, 0%);
+            }
+            &.white {
+                animation: 3s ease-in 2s infinite normal both running opacityAnim ;
+            }
+        }
+    }
+    &__audio {
+        cursor: pointer;
+        position: absolute;
+        top: 55vh;
+        left: 55vw;
+        font-size: 14px;
+        transform: translate3d(0, 0, 1px);
+        z-index: 0;
+        display: none;
+        width: 300px;
+
+        @media screen and (max-width: 600px) {
+            width: 75vw;
+            left: calc(25vw - 10px);
+        }
+        small {
+            font-size: 10px;
+
+        }
+
+        .hidden & {
+            display: block;
+        }
+        &:hover {
+            .loader__audio-icon-full {
+                opacity: 1;
+            }
+        }
+    }
+    &__audio-icon-full {
+        pointer-events: none;
+        position: absolute;
+        left: 90%;
+        bottom: -18px;
+        font-size: 30px;
+        opacity: 0;
+        @media screen and (max-width: 600px) {
+            left: 64vw;
+            bottom: -18px;
+        }
+    }
+    &__audio-btn {
+        position: absolute;
+        left: 90%;
+        bottom: -18px;
+        font-size: 30px;
+        @media screen and (max-width: 600px) {
+            left: 64vw;
+            bottom: -18px;
+        }
+    }
 }
-.js-load-hidden {
-    visibility: hidden;
+// .js-load-hidden {
+//     visibility: hidden;
+//     border: 1px solid black;
+// }
+
+@keyframes opacityAnim {
+    0% {
+      opacity: 1;
+    }
+    33% {
+        opacity: 1;
+    }
+    34% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
 }

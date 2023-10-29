@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nature est découverte</title>
+    <title>❦☽❊ Nature est découverte ❊☽❦</title>
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="./assets/favicon/site.webmanifest">
     <link rel="mask-icon" href="./assets/favicon/safari-pinned-tab.svg" color="#ffffff">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="theme-color" content="#ffffff">
-    <meta property="og:title" content="Nature est découverte ">
+    <meta name="msapplication-TileColor" content="#152e42">
+    <meta name="theme-color" content="#152e42">
+
+    <meta property="og:title" content="❦☽❊ Nature est découverte ❊☽❦">
     <meta property="description" content="Le projet Nature est découverte, une série de 3 clips réalisés par Agathe et Anna entre 2017 et 2020. ">
     <meta property="og:description" content="Le projet Nature est découverte, une série de 3 clips réalisés par Agathe et Anna entre 2017 et 2020. ">
     <meta property="og:image" content="./assets/favicon/share-image.png">
@@ -19,19 +20,43 @@
 <body>
     <!-- CONTENT -->
     <div class="loader">
+        <img class="loader__image loader__image--1" src="./assets/images/video/color.png" alt="">
+        <img class="loader__image loader__image--2" src="./assets/images/video/moon.png" alt="">
+        <img class="loader__image loader__image--3" src="./assets/images/video/vegetal.png" alt="">
+        <div class="loader__icon loader__icon--1">❊</div>
+        <div class="loader__icon loader__icon--2">☽</div>
+        <div class="loader__icon loader__icon--3">❦</div>
+        <div class="loader__icon white loader__icon--1">❊</div>
+        <div class="loader__icon white loader__icon--2">☽</div>
+        <div class="loader__icon white loader__icon--3">❦</div>
+        <div class="loader__audio js-audio">
+            Pour une expérience optimale, activez le son en cliquant sur l'étoile.
+            <br>
+            <small>Pour continuez, cliquez ailleurs sur la fenêtre.</small>
+            <div class="loader__audio-btn js-audio">
+                ☆
+            </div>
+            <div class="loader__audio-icon-full">
+                ★
+            </div>
+        </div>
+        <div class="loader__bg"></div>
+        <div class="loader__blur"></div>
+
+
 
     </div>
 
     <!-- webgl -->
     <div class="">
         <div class="button__container js-button-container">
-            <button class="button t-body js-load-hidden js-button">❊</button>
-            <button class="button t-body js-load-hidden js-button">☽</button>
-            <button class="button t-body js-load-hidden js-button">❦</button>
-            <span class="js-load-hidden"> | </span>
-            <button class="button t-body js-button js-load-hidden">⇭</button>
+            <button class="button t-body  js-button">❊</button>
+            <button class="button t-body  js-button">☽</button>
+            <button class="button t-body  js-button">❦</button>
+            <span class=""> | </span>
+            <button class="button t-body js-button ">⇭</button>
             <div class="info__content">
-                <div class="info js-info ">
+                <div class="info js-info hidden">
                     <p>
                         Le projet Nature est découverte, une série de 3 clips réalisés par <a target="_blank" href="https://www.agathelavarel.com/">Agathe</a> et <a target="_blank" href="https://www.annabaumann.fr/">Anna</a> entre 2017 et 2020. 
                     </p>
@@ -45,7 +70,7 @@
             </div>
         </div>
 
-        <canvas class="webgl js-load-hidden"></canvas>
+        <canvas class="webgl "></canvas>
     </div>
 </body>
 </html>
