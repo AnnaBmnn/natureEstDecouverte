@@ -24,11 +24,13 @@ export default class Raycaster
             this.camera = this.experience.camera.instance
             this.objectToIntersect = this.experience.world.objectToIntersect
             this.isReady = true
+
+            window.addEventListener( 'mousemove', this.onPointerMove );
+            window.addEventListener( 'click', this.onClick );
+            window.addEventListener( 'ontouchstart', this.onClick );
         })
 
-        window.addEventListener( 'mousemove', this.onPointerMove );
-        window.addEventListener( 'click', this.onClick );
-        window.addEventListener( 'ontouchstart', this.onClick );
+
         
     }
     onPointerMove( event ) {
