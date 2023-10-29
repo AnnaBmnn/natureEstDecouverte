@@ -45,7 +45,7 @@ export default class Experience
         this.renderer = new Renderer()
         this.world = new World()
         this.audios = new Audios()
-        this.loader = new Loader()
+        // this.loader = new Loader()
         this.raycaster = new Raycaster()
         
         // Dom
