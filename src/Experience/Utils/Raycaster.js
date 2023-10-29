@@ -25,9 +25,11 @@ export default class Raycaster
             this.objectToIntersect = this.experience.world.objectToIntersect
             this.isReady = true
 
+            console.log('reayd')
+
             window.addEventListener( 'mousemove', this.onPointerMove );
             window.addEventListener( 'click', this.onClick );
-            window.addEventListener( 'ontouchstart', this.onClick );
+            document.querySelector('.webgl').addEventListener( 'ontouchstart', this.onClick );
         })
 
 
