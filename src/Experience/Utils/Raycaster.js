@@ -28,6 +28,8 @@ export default class Raycaster
 
         window.addEventListener( 'mousemove', this.onPointerMove );
         window.addEventListener( 'click', this.onClick );
+        window.addEventListener( 'ontouchstart', this.onClick );
+        
     }
     onPointerMove( event ) {
         // calculate pointer position in normalized device coordinates
