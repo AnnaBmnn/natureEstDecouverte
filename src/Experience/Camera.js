@@ -86,7 +86,8 @@ export default class Camera
         for(let i = 0; i < this.buttons.length; i++){
             this.buttons[i].addEventListener(
                 'click', 
-                () => {
+                (e) => {
+                    e.preventDefault()
                     if(this.activeIndex || this.activeIndex === 0){
                         this.buttons[this.activeIndex].classList.remove('button--active')
                     }
