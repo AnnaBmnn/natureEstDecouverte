@@ -79,10 +79,11 @@ export default class Resources extends EventEmitter
             {
                 
                 const audioEl = new Audio(source.path)
+                audioEl.load()
                 
                 // audio.src = source.path
                 
-                audioEl.addEventListener('canplay', ()=> {
+                audioEl.addEventListener('canplaythrough', ()=> {
                     this.sourceLoaded(source, audioEl)
                 })
                 
