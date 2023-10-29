@@ -11,6 +11,7 @@ import World from "./World/World.js"
 import Resources from './Utils/Resources.js'
 import Raycaster from './Utils/Raycaster.js'
 import Audios from './Utils/Audios.js'
+import Loader from './Utils/Loader.js'
 import sources from './sources.js'
 
 let instance = null
@@ -44,6 +45,7 @@ export default class Experience
         this.renderer = new Renderer()
         this.world = new World()
         this.audios = new Audios()
+        this.loader = new Loader()
         this.raycaster = new Raycaster()
         
         // Dom
