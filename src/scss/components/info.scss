@@ -12,6 +12,12 @@
     border: 1px solid black;
     color: black;
     font-size: 12px;
+    @media screen and (max-width: 420px) {
+        width: 75vw;
+        bottom: 40px;
+        left: unset;
+        right: -20px;
+    }
 
     &.hidden {
         display: none;

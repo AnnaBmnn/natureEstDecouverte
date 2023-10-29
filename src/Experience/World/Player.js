@@ -88,11 +88,11 @@ export default class Player
                 `
                     #include <begin_vertex>
         
-                    float x = cos(transformed.x * 1.0 + uTime * 5.0) + sin(transformed.x * 02.0 + uTime * 1.0)   * 0.5;
+                    float x = cos(transformed.x * 1.0 + uTime * 5.0) * sin(transformed.x * 02.0 + uTime * 1.0)   * 0.5;
                     float y = sin(transformed.y * 0.3 * transformed.x + uTime * 1.0) * cos(transformed.x + uTime)  * 0.2;
                     float z = sin(transformed.z * 1.0 + uTime * 1.0 ) * cos(transformed.y * 1.0 + uTime * 5.0 ) * 0.1;
 
-                    transformed.x = x * 1.3;
+                    transformed.x = x + transformed.x;
                     transformed.y = y + transformed.y;
                     transformed.z = z + transformed.z;
 
