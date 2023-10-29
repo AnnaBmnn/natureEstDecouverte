@@ -28,7 +28,7 @@ export default class Raycaster
 
             window.addEventListener( 'mousemove', this.onPointerMove );
             window.addEventListener( 'click', this.onClick );
-            //document.querySelector('.webgl').addEventListener( 'ontouchstart', this.onClick );
+            window.addEventListener( 'ontouchstart', this.onClick );
         })
 
 
@@ -42,7 +42,7 @@ export default class Raycaster
     
     }
     onClick(e) {
-        document.querySelector('.webgl').classList.add('red')
+        // document.querySelector('.webgl').classList.add('red')
         console.log('click')
         console.log(this.intersects)
         if(this.intersects && this.intersects.length > 0) {
