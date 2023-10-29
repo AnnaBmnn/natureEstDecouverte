@@ -43,6 +43,7 @@ export default class Raycaster
     
     }
     onClick(e) {
+        document.querySelector('.webgl').classList.add('red')
         console.log('click')
         console.log(this.intersects)
         if(this.intersects && this.intersects.length > 0) {
