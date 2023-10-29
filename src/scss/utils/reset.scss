@@ -139,6 +139,12 @@ a, a:focus, a:visited{
   color: inherit
 }
 
+body {
+  @media screen and (max-width: 420px) {
+    cursor: pointer;
+  }
+}
+
 body.pointer {
   cursor: pointer;
 }

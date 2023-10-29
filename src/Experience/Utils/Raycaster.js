@@ -37,7 +37,9 @@ export default class Raycaster
     
     }
     onClick(e) {
-        if(this.intersects && this.intersects.length) {
+        console.log('click')
+        console.log(this.intersects)
+        if(this.intersects && this.intersects.length > 0) {
 
             if(this.intersects[0].object.linkSrc){
                 window.open(this.intersects[0].object.linkSrc, '_blank').focus();
