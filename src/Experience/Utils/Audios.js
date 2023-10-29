@@ -10,12 +10,13 @@ export default class Audios extends EventEmitter
         this.experience = new Experience()
         this.resources = this.experience.resources
         this.isReady = false
+        this.audioDom = document.querySelector('.js-audio')
 
         // Options
         this.resources.on('ready', () => 
         {
             this.isReady = true
-            
+
         })
 
         // Set up
