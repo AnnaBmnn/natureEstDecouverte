@@ -27,67 +27,6 @@ export default [
         path: 'textures/video/vegetal.png'
     },
     {
-        name: 'GrassColorTexture',
-        type: 'texture',
-        path: 'textures/grass/grass.png'
-    },
-    {
-        name: 'GrassNormalTexture',
-        type: 'texture',
-        path: 'textures/grass/normalGrass.png'
-    },
-
-    {
-        name: 'BacteriaColor',
-        type: 'texture',
-        path: 'textures/bacteria/Bacteria_001_COLOR.jpg'
-    },
-    {
-        name: 'BacteriaDisp',
-        type: 'texture',
-        path: 'textures/bacteria/Bacteria_001_DISP.png'
-    },
-    {
-        name: 'BacteriaNorm',
-        type: 'texture',
-        path: 'textures/bacteria/Bacteria_001_NORM.jpg'
-    },
-    {
-        name: 'BacteriaOcc',
-        type: 'texture',
-        path: 'textures/bacteria/Bacteria_001_OCC.jpg'
-    },
-    {
-        name: 'BacteriaSpec',
-        type: 'texture',
-        path: 'textures/bacteria/Bacteria_001_SPEC.jpg'
-    },
-    {
-        name: 'CoralColor',
-        type: 'texture',
-        path: 'textures/coral/Coral_001_basecolor.jpg'
-    },
-    {
-        name: 'CoralAo',
-        type: 'texture',
-        path: 'textures/coral/Coral_001_ambientOcclusion.jpg'
-    },
-    {
-        name: 'CoralHeight',
-        type: 'texture',
-        path: 'textures/coral/Coral_001_height.png'
-    },
-    {
-        name: 'CoralNormal',
-        type: 'texture',
-        path: 'textures/coral/Coral_001_normal.jpg'
-    },
-    {
-        name: 'CoralRoughness',
-        type: 'texture',
-        path: 'textures/coral/Coral_001_roughness.jpg'
-    },
-    {
         name: 'GemColor',
         type: 'texture',
         path: 'textures/gem/Encrusted_Gems_002_COLOR.jpg'
@@ -116,11 +55,6 @@ export default [
         name: 'GemRough',
         type: 'texture',
         path: 'textures/gem/Encrusted_Gems_002_ROUGH.jpg'
-    },
-    {
-        name: 'ButterflyColor',
-        type: 'texture',
-        path: 'textures/butterfly/butterflyColor.png'
     },
     {
         name: 'Texte',

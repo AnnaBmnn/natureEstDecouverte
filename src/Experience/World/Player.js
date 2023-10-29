@@ -56,20 +56,19 @@ export default class Player
 
     setMaterial()
     {
-        this.material = new THREE.MeshPhysicalMaterial({
-            color: 0xffffff,
+        this.material = new THREE.MeshStandardMaterial({
             transmission: 1,
             opacity: 0.5,
             transparent: true,
-            metalness: 0,
+            metalness: 1,
             roughness: 0,
-            ior: 1.5,
-            thickness: 0.1,
             specularIntensity: 1,
             specularColor: 0xffffff,
             envMap: this.textures.color,
-            envMapIntensity: 0,
-            lightIntensity: 1,
+            emissiveIntensity: 1,
+            emissiveMap: this.textures.color,
+            emissive: 0xffffff,
+            lightIntensity: 2,
             exposure: 1
         })
         this.normalMaterial = new THREE.MeshBasicMaterial({
@@ -89,11 +88,11 @@ export default class Player
                 `
                     #include <begin_vertex>
         
-                    float x = cos(transformed.x * 1.0 + uTime * 5.0) * sin(transformed.x * 02.0 + uTime * 1.0)   * 0.5;
+                    float x = cos(transformed.x * 1.0 + uTime * 5.0) + sin(transformed.x * 02.0 + uTime * 1.0)   * 0.5;
                     float y = sin(transformed.y * 0.3 * transformed.x + uTime * 1.0) * cos(transformed.x + uTime)  * 0.2;
                     float z = sin(transformed.z * 1.0 + uTime * 1.0 ) * cos(transformed.y * 1.0 + uTime * 5.0 ) * 0.1;
 
-                    transformed.x = x + transformed.x;
+                    transformed.x = x * 1.3;
                     transformed.y = y + transformed.y;
                     transformed.z = z + transformed.z;
 
@@ -153,6 +152,8 @@ export default class Player
         this.customUniforms.uTime.value += 0.01
         //this.mesh.lookAt(this.camera.controls.object.position)
         this.mesh.rotation.y += 0.01
+        this.mesh.rotation.x += 0.01
+
         this.normalMesh.rotation.y += 0.01
     }
 
