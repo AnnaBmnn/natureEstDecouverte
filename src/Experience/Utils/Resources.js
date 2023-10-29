@@ -82,7 +82,7 @@ export default class Resources extends EventEmitter
                 
                 // audio.src = source.path
                 
-                audioEl.addEventListener('canplaythrough', ()=> {
+                audioEl.addEventListener('canplay', ()=> {
                     this.sourceLoaded(source, audioEl)
                 })
                 
@@ -98,7 +98,6 @@ export default class Resources extends EventEmitter
 
         if(this.loaded === this.toLoad ){
             this.trigger('ready')
-            console.log('ready !!!')
         }
     }
 }
