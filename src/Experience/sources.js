@@ -65,5 +65,20 @@ export default [
         name: 'TerrainBesseggen',
         type: 'terrainData',
         path: 'terrainData/besseggen.bin'
-    }
+    },
+    {
+        name: 'AudioBackground',
+        type: 'audio',
+        path: 'audio/background.mp3'
+    },
+    {
+        name: 'AudioBubbleClick',
+        type: 'audio',
+        path: 'audio/bubble_click.mp3'
+    },
+    {
+        name: 'AudioBubbleHover',
+        type: 'audio',
+        path: 'audio/bubble_hover.mp3'
+    },
 ]

@@ -18,9 +18,11 @@ export default class Raycaster
         this.onPointerMove = this.onPointerMove.bind(this)
         this.update = this.update.bind(this)
         this.onClick = this.onClick.bind(this)
+        this.isMouseIn = false
 
         this.resources.on('ready', () => 
         {
+            this.audio = this.experience.audio
             this.camera = this.experience.camera.instance
             this.objectToIntersect = this.experience.world.objectToIntersect
             this.isReady = true
@@ -44,11 +46,12 @@ export default class Raycaster
     }
     onClick(e) {
         // document.querySelector('.webgl').classList.add('red')
-        console.log('click')
         console.log(this.intersects)
         if(this.intersects && this.intersects.length > 0) {
 
             if(this.intersects[0].object.linkSrc){
+
+                this.resources.items['AudioBubbleClick'].play()
                 window.open(this.intersects[0].object.linkSrc, '_blank').focus();
             }
         }
@@ -64,17 +67,24 @@ export default class Raycaster
 
             if(this.intersects.length > 0){
                 document.querySelector('body').classList.add('pointer')
-                for ( let i = 0; i < this.intersects.length; i ++ ) {
-                    this.intersects[ i ].object.material.opacity = 0.9;
-                    this.intersects[ i ].object.material.map = this.intersects[ i ].object.material.envMap;
-                    this.intersects[ i ].object.material.needsUpdate = true;
+                if(!this.isMouseIn){
+                    this.isMouseIn = true
+                    this.resources.items['AudioBubbleHover'].play()
+                    for ( let i = 0; i < this.intersects.length; i ++ ) {
+                        this.intersects[ i ].object.material.opacity = 0.9;
+                        this.intersects[ i ].object.material.map = this.intersects[ i ].object.material.envMap;
+                        this.intersects[ i ].object.material.needsUpdate = true;
+                    }
                 }
             } else {
-                document.querySelector('body').classList.remove('pointer')
-                for ( let i = 0; i < this.objectToIntersect.length; i ++ ) {
-                    this.objectToIntersect[ i ].material.opacity = 0.5;
-                    this.objectToIntersect[ i ].material.map = null
-                    this.objectToIntersect[ i ].material.needsUpdate = true;
+                if(this.isMouseIn){
+                    this.isMouseIn = false
+                    document.querySelector('body').classList.remove('pointer')
+                    for ( let i = 0; i < this.objectToIntersect.length; i ++ ) {
+                        this.objectToIntersect[ i ].material.opacity = 0.5;
+                        this.objectToIntersect[ i ].material.map = null
+                        this.objectToIntersect[ i ].material.needsUpdate = true;
+                    }
                 }
             }
         }

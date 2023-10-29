@@ -10,6 +10,7 @@ import Info from "./DOM/Info.js"
 import World from "./World/World.js"
 import Resources from './Utils/Resources.js'
 import Raycaster from './Utils/Raycaster.js'
+import Audios from './Utils/Audios.js'
 import sources from './sources.js'
 
 let instance = null
@@ -42,6 +43,7 @@ export default class Experience
         this.camera = new Camera()
         this.renderer = new Renderer()
         this.world = new World()
+        this.audios = new Audios()
         this.raycaster = new Raycaster()
         
         // Dom

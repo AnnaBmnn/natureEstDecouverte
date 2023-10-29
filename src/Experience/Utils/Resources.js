@@ -75,6 +75,18 @@ export default class Resources extends EventEmitter
                     }
                 )
             }
+            else if(source.type === 'audio')
+            {
+                
+                const audioEl = new Audio(source.path)
+                
+                // audio.src = source.path
+                
+                audioEl.addEventListener('canplaythrough', ()=> {
+                    this.sourceLoaded(source, audioEl)
+                })
+                
+            }
         }
     }
 
