@@ -27,8 +27,8 @@ export default class Raycaster
 
 
             window.addEventListener( 'mousemove', this.onPointerMove );
-            // window.addEventListener( 'click', this.onClick );
-            document.querySelector('.webgl').addEventListener( 'click', this.onClick );
+            window.addEventListener( 'click', this.onClick );
+            // document.querySelector('.webgl').addEventListener( 'click', this.onClick );
             window.addEventListener( 'ontouchstart', this.onClick );
         })
 

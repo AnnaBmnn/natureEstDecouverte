@@ -57,19 +57,14 @@ export default class Player
     setMaterial()
     {
         this.material = new THREE.MeshStandardMaterial({
-            transmission: 1,
             opacity: 0.5,
             transparent: true,
             metalness: 1,
             roughness: 0,
-            specularIntensity: 1,
-            specularColor: 0xffffff,
             envMap: this.textures.color,
             emissiveIntensity: 1,
             emissiveMap: this.textures.color,
             emissive: 0xffffff,
-            lightIntensity: 2,
-            exposure: 1
         })
         this.normalMaterial = new THREE.MeshBasicMaterial({
             map: this.textures.color,
