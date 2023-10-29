@@ -147,6 +147,9 @@ body {
 
 body.pointer {
   cursor: pointer;
+  .webgl {
+    cursor: pointer;
+  }
 }
 
 .red {
