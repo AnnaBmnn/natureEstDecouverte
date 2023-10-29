@@ -127,6 +127,7 @@ export default class Camera
     {
         this.controls = new OrbitControls(this.instance, this.canvas)
         this.controls.enableDamping = true
+        this.controls.maxDistance = 200
     }
 
     setDebug()
