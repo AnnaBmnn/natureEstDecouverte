@@ -24,15 +24,18 @@ export default class Raycaster
             this.camera = this.experience.camera.instance
             this.objectToIntersect = this.experience.world.objectToIntersect
             this.isReady = true
+            this.clicksSound = [
+                this.resources.items['AudioBubbleClick1'],
+                this.resources.items['AudioBubbleClick2'],
+                this.resources.items['AudioBubbleClick3'],
+                this.resources.items['AudioBubbleClick4'],
+            ]
 
             window.addEventListener( 'mousemove', this.onPointerMove );
             //window.addEventListener( 'click', this.onClick );
             document.querySelector('.webgl').addEventListener( 'click', this.onClick );
             window.addEventListener( 'ontouchstart', this.onClick );
-        })
-
-
-        
+        }) 
     }
     onPointerMove( event ) {
         // calculate pointer position in normalized device coordinates
@@ -48,11 +51,14 @@ export default class Raycaster
 
             if(this.intersects[0].object.linkSrc){
                 if(this.experience.audios.isAudioActive){
-                    this.resources.items['AudioBubbleClick'].play()
+                    this.clicksSound[0].play()
                 }
                 window.open(this.intersects[0].object.linkSrc, '_blank').focus();
             }
         }
+    }
+    randomNumber(length){
+        return Math.floor(Math.random() * length);
     }
     update()
     {
@@ -68,7 +74,8 @@ export default class Raycaster
                 if(!this.isMouseIn){
                     this.isMouseIn = true
                     if(this.experience.audios.isAudioActive){
-                        this.resources.items['AudioBubbleHover'].play()
+                        this.clicksSound[this.randomNumber(this.clicksSound.length)].play()
+                        // this.resources.items['AudioBubbleHover'].play()
                     }
                     for ( let i = 0; i < this.intersects.length; i ++ ) {
                         this.intersects[ i ].object.material.opacity = 0.9;

@@ -18,7 +18,8 @@ export default class Audios extends EventEmitter
         {
             this.isReady = true
             this.audioBackground = this.resources.items['AudioBackground']
-
+            this.audioBackground.loop = true
+            this.audioBackground.volume = 0.9
         })
 
         // Set up

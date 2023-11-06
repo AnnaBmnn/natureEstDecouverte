@@ -12,9 +12,17 @@ export default class Camera
         this.sizes = this.experience.sizes
         this.scene = this.experience.scene
         this.canvas = this.experience.canvas
+        this.resources = this.experience.resources
         this.debug = this.experience.debug
         this.activeIndex = null
 
+        this.resources.on('ready', () => 
+        {
+            this.swooshsSound = [
+                this.resources.items['AudioSwitch1'],
+                this.resources.items['AudioSwitch2']
+            ]
+        })
         this.cameraScreenPosition = [
             // {
             //     position: new THREE.Vector3(
@@ -54,12 +62,12 @@ export default class Camera
             },
             {
                 position: new THREE.Vector3(
-                    -73.013923889257,
-                    -5.85441336614551,
-                    17.5196304171537
+                    -77.33026432251154,
+                    -3.4197114165253337,
+                    -6.18954056728051
                 ),
                 rotation: {
-                    x: 0.32249712529288105,
+                    x: 0.3324972529288105,
                     y: -1.3230039695904585,
                     z: 0.3132877695763272
                 }
@@ -91,11 +99,14 @@ export default class Camera
                     if(this.activeIndex || this.activeIndex === 0){
                         this.buttons[this.activeIndex].classList.remove('button--active')
                     }
-
+                    console.log(this.swooshsSound)
+                    if(this.swooshsSound){
+                        this.swooshsSound[this.randomNumber(this.swooshsSound.length)].play()
+                    }
                     this.activeIndex = i
                     this.setCameraPosition(this.cameraScreenPosition[this.activeIndex])
                     this.buttons[this.activeIndex].classList.add('button--active')
-
+                    
                 }
             )
         }
@@ -111,7 +122,9 @@ export default class Camera
             this.setDebug()
         }
     }
-
+    randomNumber(length){
+        return Math.floor(Math.random() * length);
+    }
     setInstance()
     {
         this.instance = new THREE.PerspectiveCamera(
