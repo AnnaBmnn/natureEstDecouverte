@@ -1,5 +1,6 @@
 import Experience from '../Experience.js'
 import EventEmitter from "./EventEmitter.js"
+import gsap from 'gsap'
 
 export default class Audios extends EventEmitter
 {
@@ -39,6 +40,29 @@ export default class Audios extends EventEmitter
                 this.audioBackground.play()
             }
         })
+        addEventListener("visibilitychange", (event) => {
+            if(this.isAudioActive){
+                if(document.visibilityState === "visible"){
+                    console.log('become visible')
+                    // this.audioBackground.volume = 1
+
+                    gsap.to(
+                        this.audioBackground,
+                        {
+                            duration: 2,
+                            volume: 1,
+                            onUpdate: ()=> {
+                                console.log(this.audioBackground.volume)
+                            },
+                        }
+                    )
+                }else {
+                    this.audioBackground.volume = 0
+
+                }
+            }
+        });
+
 
     }
     
