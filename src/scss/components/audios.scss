@@ -7,6 +7,9 @@
         top: 10px;
         z-index: 10;
     }
+    .hidden {
+        visibility: hidden;
+    }
     .full {
         opacity: 0;
     }
@@ -14,14 +17,20 @@
         .full {
             opacity: 1;
         }
+        .empty {
+            opacity: 0;
+        }
     }
     &.active {
+        .empty {
+            opacity: 0;
+        }
         .full {
             opacity: 1;
         }
         &:hover {
-            .full {
-                opacity: 0;
+            .empty {
+                opacity: 1;
             }
         }
     }

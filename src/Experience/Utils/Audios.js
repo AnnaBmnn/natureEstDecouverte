@@ -38,6 +38,7 @@ export default class Audios extends EventEmitter
             }else {
                 this.isAudioActive = true
                 this.audioBackground.play()
+                this.audioExperience.classList.add('active')
             }
         })
         addEventListener("visibilitychange", (event) => {

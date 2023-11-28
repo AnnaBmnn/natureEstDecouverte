@@ -40,6 +40,25 @@
         background-color: #0000008a;
     }
 
+    &.audio {
+        color: white;
+        background-color: #0000008a;
+        &:hover {
+            color: black;
+            background-color: transparent;
+        }
+    }
+    &.audio.active {
+        color: black;
+        background-color: transparent;
+        
+
+        &:hover {
+            color: white;
+            background-color: #0000008a;
+        }
+    }
+
     &--active {
         color: white;
         background-color: #0000008a;
