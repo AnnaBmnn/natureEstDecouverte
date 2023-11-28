@@ -28,7 +28,6 @@ export default class Raycaster
                 this.resources.items['AudioBubbleClick1'],
                 this.resources.items['AudioBubbleClick2'],
                 this.resources.items['AudioBubbleClick3'],
-                this.resources.items['AudioBubbleClick4'],
             ]
 
             window.addEventListener( 'mousemove', this.onPointerMove );
@@ -51,7 +50,7 @@ export default class Raycaster
 
             if(this.intersects[0].object.linkSrc){
                 if(this.experience.audios.isAudioActive){
-                    this.clicksSound[0].play()
+                    this.clicksSound[this.randomNumber(this.clicksSound.length)].play()
                 }
                 window.open(this.intersects[0].object.linkSrc, '_blank').focus();
             }

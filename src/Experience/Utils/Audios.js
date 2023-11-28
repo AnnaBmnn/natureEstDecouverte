@@ -13,6 +13,7 @@ export default class Audios extends EventEmitter
         this.isAudioActive = false
         this.audioLoader = document.querySelector('.js-audio')
         this.audioExperience = document.querySelector('.js-audio-experience')
+        this.audiosHoverTap = document.querySelectorAll('.js-audio-hover')
 
         // Options
         this.resources.on('ready', () => 
@@ -20,7 +21,8 @@ export default class Audios extends EventEmitter
             this.isReady = true
             this.audioBackground = this.resources.items['AudioBackground']
             this.audioBackground.loop = true
-            this.audioBackground.volume = 0.9
+            this.audioBackground.volume = 0.8
+            this.setAudioOnHoverTap()
         })
 
         // Set up
@@ -41,17 +43,16 @@ export default class Audios extends EventEmitter
                 this.audioExperience.classList.add('active')
             }
         })
-        addEventListener("visibilitychange", (event) => {
+        document.addEventListener("visibilitychange", (event) => {
             if(this.isAudioActive){
                 if(document.visibilityState === "visible"){
-                    console.log('become visible')
                     // this.audioBackground.volume = 1
 
                     gsap.to(
                         this.audioBackground,
                         {
                             duration: 2,
-                            volume: 1,
+                            volume: 0.8,
                             onUpdate: ()=> {
                                 console.log(this.audioBackground.volume)
                             },
@@ -65,6 +66,23 @@ export default class Audios extends EventEmitter
         });
 
 
+    }
+    setAudioOnHoverTap()
+    {
+        console.log('setAudioOnHoverTap')
+            for(let i = 0; i < this.audiosHoverTap.length; i++){
+                this.audiosHoverTap[i].addEventListener('mouseenter', ()=>{
+                    if(this.isAudioActive){
+                        this.resources.items['AudioButtonHover'].play()
+                    }
+
+                })
+                
+            }
+
+        
+        
+        
     }
     
 }

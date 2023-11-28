@@ -69,36 +69,52 @@ export default [
     {
         name: 'AudioBackground',
         type: 'audio',
-        path: 'audio/AA_SiteWeb_Musique_Version01_20231104.mp3'
+        path: 'audio/loop.mp3'
+    },
+    {
+        name: 'AudioButtonHover',
+        type: 'audio',
+        path: 'audio/button_hover.mp3'
     },
     {
         name: 'AudioBubbleClick1',
         type: 'audio',
-        path: 'audio/AA_SiteWeb_SoundDesign_Click_Touche_01.mp3'
+        path: 'audio/bubble_click_1.mp3'
     },
     {
         name: 'AudioBubbleClick2',
         type: 'audio',
-        path: 'audio/AA_SiteWeb_SoundDesign_Click_Touche_02.mp3'
+        path: 'audio/bubble_click_2.mp3'
     },
     {
         name: 'AudioBubbleClick3',
         type: 'audio',
-        path: 'audio/AA_SiteWeb_SoundDesign_Click_Touche_03.mp3'
+        path: 'audio/bubble_click_3.mp3'
     },
     {
-        name: 'AudioBubbleClick4',
+        name: 'AudioSwitchAccueil',
         type: 'audio',
-        path: 'audio/AA_SiteWeb_SoundDesign_Click_Touche_04.mp3'
+        path: 'audio/button_acceuil.mp3'
     },
     {
         name: 'AudioSwitch1',
         type: 'audio',
-        path: 'audio/AA_SiteWeb_SoundDesign_Switch_woush_01.mp3'
+        path: 'audio/audio_switch_1.mp3'
     },
     {
         name: 'AudioSwitch2',
         type: 'audio',
-        path: 'audio/AA_SiteWeb_SoundDesign_Switch_woush_02.mp3'
+        path: 'audio/audio_switch_2.mp3'
     },
+    {
+        name: 'AudioSwitch3',
+        type: 'audio',
+        path: 'audio/audio_switch_2.mp3'
+    },
+    {
+        name: 'AudioSwitch4',
+        type: 'audio',
+        path: 'audio/audio_switch_2.mp3'
+    },
+
 ]

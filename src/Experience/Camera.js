@@ -20,8 +20,11 @@ export default class Camera
         {
             this.swooshsSound = [
                 this.resources.items['AudioSwitch1'],
-                this.resources.items['AudioSwitch2']
+                this.resources.items['AudioSwitch2'],
+                this.resources.items['AudioSwitch3'],
+                this.resources.items['AudioSwitch4'],
             ]
+            this.soundAccueil = this.resources.items['AudioSwitchAccueil']
         })
         this.cameraScreenPosition = [
             // {
@@ -88,7 +91,6 @@ export default class Camera
 
         // Dom element
         this.buttons = document.querySelectorAll('.js-button');
-        console.log(this.button)
 
         // Dom event
         for(let i = 0; i < this.buttons.length; i++){
@@ -99,9 +101,15 @@ export default class Camera
                     if(this.activeIndex || this.activeIndex === 0){
                         this.buttons[this.activeIndex].classList.remove('button--active')
                     }
-                    console.log(this.swooshsSound)
-                    if(this.swooshsSound){
-                        this.swooshsSound[this.randomNumber(this.swooshsSound.length)].play()
+                    if(i !== 3){
+                        if(this.swooshsSound && this.experience.audios.isAudioActive){
+                            this.swooshsSound[this.randomNumber(this.swooshsSound.length)].play()
+                        }
+                    } else {
+                        if(this.experience.audios.isAudioActive){
+                            this.soundAccueil.play()
+                        }
+                        
                     }
                     this.activeIndex = i
                     this.setCameraPosition(this.cameraScreenPosition[this.activeIndex])
