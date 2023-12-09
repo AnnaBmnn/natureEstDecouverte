@@ -101,12 +101,15 @@ export default class Camera
                     if(this.activeIndex || this.activeIndex === 0){
                         this.buttons[this.activeIndex].classList.remove('button--active')
                     }
+                    console.log('this.experience.audios.audioStateIndex')
+                    console.log(this.experience.audios.audioStateIndex)
+                    console.log(this.experience.audios.AUDIO_OFF)
                     if(i !== 3){
                         if(this.swooshsSound && this.experience.audios.audioStateIndex > this.experience.audios.AUDIO_OFF){
                             this.swooshsSound[this.randomNumber(this.swooshsSound.length)].play()
                         }
                     } else {
-                        if(this.experience.audios.isAudioActive){
+                        if(this.experience.audios.audioStateIndex > this.experience.audios.AUDIO_OFF){
                             this.soundAccueil.play()
                         }
                         

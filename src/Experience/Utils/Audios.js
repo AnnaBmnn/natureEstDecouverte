@@ -90,7 +90,7 @@ export default class Audios extends EventEmitter
     {
         for(let i = 0; i < this.audiosHoverTap.length; i++){
             this.audiosHoverTap[i].addEventListener('mouseenter', ()=>{
-                if(this.isAudioActive){
+                if(this.experience.audios.audioStateIndex > this.experience.audios.AUDIO_OFF){
                     this.resources.items['AudioButtonHover'].play()
                 }
 
