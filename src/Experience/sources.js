@@ -84,6 +84,7 @@ export default [
     {
         name: 'AudioBubbleClick2',
         type: 'audio',
+        
         path: 'audio/bubble_click_2.mp3'
     },
     {

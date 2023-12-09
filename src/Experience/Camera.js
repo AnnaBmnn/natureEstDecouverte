@@ -102,7 +102,7 @@ export default class Camera
                         this.buttons[this.activeIndex].classList.remove('button--active')
                     }
                     if(i !== 3){
-                        if(this.swooshsSound && this.experience.audios.isAudioActive){
+                        if(this.swooshsSound && this.experience.audios.audioStateIndex > this.experience.audios.AUDIO_OFF){
                             this.swooshsSound[this.randomNumber(this.swooshsSound.length)].play()
                         }
                     } else {

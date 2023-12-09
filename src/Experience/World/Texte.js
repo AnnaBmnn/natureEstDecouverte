@@ -31,6 +31,7 @@ export default class Texte
 
         // Position mesh
         this.model.position.set(-6.868, 5.854, 5.854)
+        
         this.model.rotation.set(2.625, -4.5, 3.03)
         this.model.scale.set(6.819, 6.565)
 

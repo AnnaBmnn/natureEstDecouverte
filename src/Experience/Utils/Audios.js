@@ -7,7 +7,15 @@ export default class Audios extends EventEmitter
     constructor()
     {
         super()
-
+        this.AUDIO_OFF = 0
+        this.AUDIO_SOUND = 1
+        this.AUDIO_ALL = 2
+        this.audioStates = [
+            'off',
+            'sound',
+            'all'
+        ]
+        this.audioStateIndex = 0
         this.experience = new Experience()
         this.resources = this.experience.resources
         this.isAudioActive = false
@@ -28,23 +36,34 @@ export default class Audios extends EventEmitter
         // Set up
         this.items = {}
         this.audioLoader.addEventListener('click', ()=> {
-            this.isAudioActive = true
+            this.audioStateIndex = this.AUDIO_ALL
+            //this.isAudioActive = true
             this.audioBackground.play()
             this.audioExperience.classList.add('active')
         })
+ 
         this.audioExperience.addEventListener('click', ()=> {
-            if(this.isAudioActive){
-                this.isAudioActive = false
+            this.audioExperience.classList.remove(this.audioStates[this.audioStateIndex])
+
+            this.audioStateIndex = (this.audioStateIndex + 1) % 3
+
+            this.audioExperience.classList.add(this.audioStates[this.audioStateIndex])
+            if(this.audioStateIndex == this.AUDIO_OFF){
+                //this.isAudioActive = false
                 this.audioBackground.pause()
                 this.audioExperience.classList.remove('active')
-            }else {
-                this.isAudioActive = true
+            }else if (this.audioStateIndex == this.AUDIO_SOUND) {
+                //this.isAudioActive = true
+                this.audioBackground.pause()
+                this.audioExperience.classList.add('active')
+            }else if (this.audioStateIndex == this.AUDIO_ALL) {
+                //this.isAudioActive = true
                 this.audioBackground.play()
                 this.audioExperience.classList.add('active')
             }
         })
         document.addEventListener("visibilitychange", (event) => {
-            if(this.isAudioActive){
+            if(this.audioStateIndex == this.AUDIO_ALL){
                 if(document.visibilityState === "visible"){
                     // this.audioBackground.volume = 1
 
@@ -69,19 +88,15 @@ export default class Audios extends EventEmitter
     }
     setAudioOnHoverTap()
     {
-        console.log('setAudioOnHoverTap')
-            for(let i = 0; i < this.audiosHoverTap.length; i++){
-                this.audiosHoverTap[i].addEventListener('mouseenter', ()=>{
-                    if(this.isAudioActive){
-                        this.resources.items['AudioButtonHover'].play()
-                    }
+        for(let i = 0; i < this.audiosHoverTap.length; i++){
+            this.audiosHoverTap[i].addEventListener('mouseenter', ()=>{
+                if(this.isAudioActive){
+                    this.resources.items['AudioButtonHover'].play()
+                }
 
-                })
-                
-            }
-
-        
-        
+            })
+            
+        }
         
     }
     

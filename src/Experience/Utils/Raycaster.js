@@ -49,7 +49,7 @@ export default class Raycaster
         if(this.intersects && this.intersects.length > 0) {
 
             if(this.intersects[0].object.linkSrc){
-                if(this.experience.audios.isAudioActive){
+                if(this.experience.audios.audioStateIndex > this.experience.audios.AUDIO_OFF){
                     this.clicksSound[this.randomNumber(this.clicksSound.length)].play()
                 }
                 window.open(this.intersects[0].object.linkSrc, '_blank').focus();
@@ -72,7 +72,7 @@ export default class Raycaster
                 document.querySelector('body').classList.add('pointer')
                 if(!this.isMouseIn){
                     this.isMouseIn = true
-                    if(this.experience.audios.isAudioActive){
+                    if(this.experience.audios.audioStateIndex > this.experience.audios.AUDIO_OFF){
                         this.clicksSound[this.randomNumber(this.clicksSound.length)].play()
                         // this.resources.items['AudioBubbleHover'].play()
                     }

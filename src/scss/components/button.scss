@@ -43,19 +43,60 @@
     &.audio {
         color: white;
         background-color: #0000008a;
+        .parenthese {
+            opacity: 0;
+        }
         &:hover {
             color: black;
             background-color: transparent;
+            .parenthese {
+                opacity: 1;
+                color: black;
+            }
         }
+
     }
-    &.audio.active {
+    &.audio.sound {
         color: black;
         background-color: transparent;
-        
+        .parenthese {
+            opacity: 1;
+        }
+        &:hover {
+            color: black;
+            background-color: transparent;
+            .parenthese {
+                opacity: 0;
+            }
+        }
+
+    }
+    &.audio.all {
+        color: black;
+        background-color: transparent;
+        .parenthese {
+            opacity: 0;
+        }
 
         &:hover {
             color: white;
             background-color: #0000008a;
+            .parenthese {
+                opacity: 0;
+            }
+        }
+    }
+
+    .parenthese {
+        position: absolute;
+        font-size: 16px;
+        top: 50%;
+        left: 50%;
+        &--left {
+            transform: translate(-16px, -51%);
+        }
+        &--right {
+            transform: translate(10px, -51%)
         }
     }
 
