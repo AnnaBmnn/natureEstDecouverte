@@ -30,6 +30,14 @@ export default class Audios extends EventEmitter
             this.audioBackground = this.resources.items['AudioBackground']
             this.audioBackground.loop = true
             this.audioBackground.volume = 0.8
+            this.audioBackground.addEventListener('timeupdate', () => {
+                const buffer = 0.2
+                console.log(this.audioBackground.currentTime)
+                if (this.audioBackground.currentTime > this.audioBackground.duration - buffer) {
+                    this.audioBackground.currentTime = 0.1
+                    this.audioBackground.play()
+                }
+              })
             this.setAudioOnHoverTap()
         })
 
@@ -39,7 +47,7 @@ export default class Audios extends EventEmitter
             this.audioStateIndex = this.AUDIO_ALL
             //this.isAudioActive = true
             this.audioBackground.play()
-            this.audioExperience.classList.add('active')
+            this.audioExperience.classList.add('all')
         })
  
         this.audioExperience.addEventListener('click', ()=> {
