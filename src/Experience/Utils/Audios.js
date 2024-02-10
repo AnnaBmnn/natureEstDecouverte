@@ -88,8 +88,16 @@ export default class Audios extends EventEmitter
                 }
             }
         });
-
-
+        addEventListener("pagehide", (event) => {
+            if(this.audioStateIndex == this.AUDIO_ALL){
+                this.audioBackground.volume = 0
+            }
+        });
+        addEventListener("pageshow", (event) => {
+            if(this.audioStateIndex == this.AUDIO_ALL){
+                this.audioBackground.volume = 1
+            }
+        });
     }
     setAudioOnHoverTap()
     {
