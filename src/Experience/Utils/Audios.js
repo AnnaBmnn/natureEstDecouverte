@@ -89,13 +89,19 @@ export default class Audios extends EventEmitter
             }
         });
         addEventListener("pagehide", (event) => {
+            console.log('page hide')
+
             if(this.audioStateIndex == this.AUDIO_ALL){
                 this.audioBackground.volume = 0
+                this.audioBackground.pause()
             }
         });
         addEventListener("pageshow", (event) => {
+            console.log('page show')
             if(this.audioStateIndex == this.AUDIO_ALL){
                 this.audioBackground.volume = 1
+                this.audioBackground.play()
+
             }
         });
     }
