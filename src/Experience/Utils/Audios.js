@@ -73,6 +73,8 @@ export default class Audios extends EventEmitter
             console.log('visilivity change')
             if(this.audioStateIndex == this.AUDIO_ALL){
                 if(document.visibilityState !== "hidden"){
+                    this.audioBackground.play()
+
                     gsap.to(
                         this.audioBackground,
                         {
@@ -85,6 +87,8 @@ export default class Audios extends EventEmitter
                     )
                 }else {
                     this.audioBackground.volume = 0
+                    this.audioBackground.pause()
+
                 }
             }
         });
