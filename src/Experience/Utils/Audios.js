@@ -32,7 +32,6 @@ export default class Audios extends EventEmitter
             this.audioBackground.volume = 0.8
             this.audioBackground.addEventListener('timeupdate', () => {
                 const buffer = 0.2
-                console.log(this.audioBackground.currentTime)
                 if (this.audioBackground.currentTime > this.audioBackground.duration - buffer) {
                     this.audioBackground.currentTime = 0.1
                     this.audioBackground.play()
@@ -71,10 +70,9 @@ export default class Audios extends EventEmitter
             }
         })
         document.addEventListener("visibilitychange", (event) => {
+            console.log('visilivity change')
             if(this.audioStateIndex == this.AUDIO_ALL){
                 if(document.visibilityState === "visible"){
-                    // this.audioBackground.volume = 1
-
                     gsap.to(
                         this.audioBackground,
                         {
@@ -87,7 +85,6 @@ export default class Audios extends EventEmitter
                     )
                 }else {
                     this.audioBackground.volume = 0
-
                 }
             }
         });
