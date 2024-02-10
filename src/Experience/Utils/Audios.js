@@ -72,7 +72,7 @@ export default class Audios extends EventEmitter
         document.addEventListener("visibilitychange", (event) => {
             console.log('visilivity change')
             if(this.audioStateIndex == this.AUDIO_ALL){
-                if(document.visibilityState === "visible"){
+                if(document.visibilityState !== "hidden"){
                     gsap.to(
                         this.audioBackground,
                         {
