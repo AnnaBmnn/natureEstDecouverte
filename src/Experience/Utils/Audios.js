@@ -88,7 +88,7 @@ export default class Audios extends EventEmitter
                 }
             }
         });
-        addEventListener("pagehide", (event) => {
+        window.addEventListener("pagehide", (event) => {
             console.log('page hide')
 
             if(this.audioStateIndex == this.AUDIO_ALL){
@@ -96,7 +96,7 @@ export default class Audios extends EventEmitter
                 this.audioBackground.pause()
             }
         });
-        addEventListener("pageshow", (event) => {
+        document.addEventListener("pageshow", (event) => {
             console.log('page show')
             if(this.audioStateIndex == this.AUDIO_ALL){
                 this.audioBackground.volume = 1
